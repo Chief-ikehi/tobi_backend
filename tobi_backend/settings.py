@@ -32,7 +32,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # BASE_DIR / 'staticfiles'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,9 +40,10 @@ AUTH_USER_MODEL = 'core.User'
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Your React or Next.js frontend
-    "http://tobi-frontend-test.vercel.app"
+    "*"
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True  # This will allow all origins (not recommended for production)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Application definition
